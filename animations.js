@@ -12,17 +12,21 @@ async function loadQuotes() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
+        // Check if we're getting the Git LFS pointer instead of actual content
         const data = await response.text();
-        console.log('Raw CSV data:', data); // Debug log
-        
+        if (data.includes('version https://git-lfs.github.com/spec/')) {
+            throw new Error('Git LFS file detected. Please ensure the CSV file is properly downloaded');
+        }
+
         const lines = data.split('\n').filter(line => line.trim() !== '');
-        console.log('Filtered lines:', lines); // Debug log
-        
-        // Skip the header row and parse the rest
+        if (lines.length === 0) {
+            throw new Error('No quotes found in CSV file');
+        }
+
+        // Rest of the processing...
         const quotes = lines.slice(1).map(row => {
-            console.log('Processing row:', row); // Debug log
             const matches = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
-            console.log('Matches found:', matches); // Debug log
             if (matches && matches.length >= 2) {
                 const quote = matches[0].replace(/"/g, '');
                 const author = matches[1].replace(/"/g, '');
@@ -30,29 +34,45 @@ async function loadQuotes() {
             }
             return null;
         }).filter(quote => quote !== null);
-        
-        console.log('Processed quotes:', quotes); // Debug log
+
+        if (quotes.length === 0) {
+            throw new Error('No valid quotes found after processing');
+        }
+
         return quotes;
     } catch (error) {
-        console.error('Detailed error:', error); // More detailed error
-        return [{ quote: 'Failed to load quotes', author: 'System' }];
+        console.error('Detailed error:', error);
+        // Return a default quote instead of empty array
+        return [{
+            quote: 'The best preparation for tomorrow is doing your best today',
+            author: 'H. Jackson Brown Jr.'
+        }];
     }
 }
 
 function updateQuote(quotes) {
+    if (!quotes || quotes.length === 0) {
+        console.error('No quotes available');
+        return;
+    }
+
     const quoteElement = document.getElementById('quote');
     const authorElement = document.getElementById('author');
     
-    // Get random quote
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    const { quote, author } = quotes[randomIndex];
+    const quoteData = quotes[randomIndex];
+
+    if (!quoteData) {
+        console.error('Invalid quote data');
+        return;
+    }
+
+    // Update text
+    quoteElement.textContent = `"${quoteData.quote}"`;
+    authorElement.textContent = `- ${quoteData.author}`;
     
     // Get random color scheme
     const colorScheme = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-    
-    // Update text
-    quoteElement.textContent = `"${quote}"`;
-    authorElement.textContent = `- ${author}`;
     
     // Update colors
     document.body.style.backgroundColor = colorScheme.bg;
