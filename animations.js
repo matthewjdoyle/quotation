@@ -9,7 +9,7 @@ const pastelColors = [
 async function loadQuotes() {
     try {
         // Use the raw GitHub URL to fetch the CSV file
-        const response = await fetch('https://raw.githubusercontent.com/matthewjdoyle/quotation/main/quotes.csv');
+        const response = await fetch('https://raw.githubusercontent.com/matthewjdoyle/quotation/main/quotes.csv?dl=1');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
