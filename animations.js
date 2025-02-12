@@ -6,14 +6,14 @@ const pastelColors = [
     { bg: '#f6f5ff', text: '#553c9a' }  // Purple
 ];
 
-async function loadQuotes() {\
+async function loadQuotes() {
     try {
-        const response = await fetch('https://github.com/matthewjdoyle/quotation/blob/main/quotes.csv');
+        // Use the raw GitHub URL to fetch the CSV file
+        const response = await fetch('https://raw.githubusercontent.com/matthewjdoyle/quotation/main/quotes.csv');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        // Check if we're getting the Git LFS pointer instead of actual content
         const data = await response.text();
         if (data.includes('version https://git-lfs.github.com/spec/')) {
             throw new Error('Git LFS file detected. Please ensure the CSV file is properly downloaded');
@@ -24,7 +24,6 @@ async function loadQuotes() {\
             throw new Error('No quotes found in CSV file');
         }
 
-        // Rest of the processing...
         const quotes = lines.slice(1).map(row => {
             const matches = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
             if (matches && matches.length >= 2) {
@@ -42,7 +41,6 @@ async function loadQuotes() {\
         return quotes;
     } catch (error) {
         console.error('Detailed error:', error);
-        // Return a default quote instead of empty array
         return [{
             quote: 'The best preparation for tomorrow is doing your best today',
             author: 'H. Jackson Brown Jr.'
