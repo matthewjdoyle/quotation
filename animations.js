@@ -6,9 +6,9 @@ const pastelColors = [
     { bg: '#f6f5ff', text: '#553c9a' }  // Purple
 ];
 
-async function loadQuotes() {
+async function loadQuotes() {\
     try {
-        const response = await fetch('quotes.csv');
+        const response = await fetch('https://github.com/matthewjdoyle/quotation/blob/main/quotes.csv');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
