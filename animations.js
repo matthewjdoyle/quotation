@@ -76,6 +76,9 @@ function updateQuote(quotes) {
     document.body.style.backgroundColor = colorScheme.bg;
     quoteElement.style.color = colorScheme.text;
     authorElement.style.color = colorScheme.text;
+
+    // Log current time in UTC using moment-timezone
+    console.log(moment().tz("UTC").format());
 }
 
 async function init() {
