@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 font-sans antialiased;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.quote-container {
+  position: relative;
+}
+
+.quote-text {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.quote-text.fade-out {
+  opacity: 0;
+}
+
+.quote-text.fade-in {
+  opacity: 1;
+}
+
+.spin-button {
+  animation: spin 0.5s ease-in-out;
+}
+
+/* Initial page load animation */
+.page-enter {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Prevent animation on initial load */
+.no-animation {
+  animation: none !important;
+} 
