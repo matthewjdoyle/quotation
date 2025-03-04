@@ -102,7 +102,7 @@ const App = () => {
                    className={`${colorScheme.text} hover:opacity-75 transition-opacity`}
                    target="_blank" 
                    rel="noopener noreferrer">
-                    Portfolio
+                    matthewjdoyle
                 </a>
             </div>
             <div className="fixed top-4 right-4">
@@ -110,7 +110,7 @@ const App = () => {
                    className={`${colorScheme.text} hover:opacity-75 transition-opacity`}
                    target="_blank" 
                    rel="noopener noreferrer">
-                    Ko-fi
+                    buy me a coffee
                 </a>
             </div>
 
