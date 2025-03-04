@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/quotation/static/css/main.2113bc48.css",
+    "main.js": "/quotation/static/js/main.b6008a6b.js",
+    "index.html": "/quotation/index.html",
+    "main.2113bc48.css.map": "/quotation/static/css/main.2113bc48.css.map",
+    "main.b6008a6b.js.map": "/quotation/static/js/main.b6008a6b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2113bc48.css",
+    "static/js/main.b6008a6b.js"
+  ]
+}
