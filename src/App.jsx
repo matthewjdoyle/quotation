@@ -97,15 +97,15 @@ const App = () => {
     return (
         <div className={`min-h-screen w-full ${colorScheme.bg} transition-colors duration-500`}>
             {/* Corner Links */}
-            <div className="fixed top-4 left-4">
+            <div className="fixed bottom-4 left-4">
                 <a href="https://matthewjdoyle.github.io" 
                    className={`${colorScheme.text} hover:opacity-75 transition-opacity`}
                    target="_blank" 
                    rel="noopener noreferrer">
-                    matthewjdoyle
+                    made by matthewjdoyle
                 </a>
             </div>
-            <div className="fixed top-4 right-4">
+            <div className="fixed bottom-4 right-4">
                 <a href="https://ko-fi.com/matthewjdoyle" 
                    className={`${colorScheme.text} hover:opacity-75 transition-opacity`}
                    target="_blank" 
