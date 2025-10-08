@@ -50,7 +50,7 @@ const App = () => {
 
     const loadQuotes = useCallback(async () => {
         try {
-            const response = await fetch('https://raw.githubusercontent.com/matthewjdoyle/quotation/main/quotes.csv?dl=1');
+            const response = await fetch('https://raw.githubusercontent.com/matthewjdoyle/quotation/main/new_quotes.csv?dl=1');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             
             const data = await response.text();
