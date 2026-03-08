@@ -263,16 +263,16 @@ const quotationMarks = [
 ];
 
 const authorPrefixes = [
-    { label: 'Arrow', value: '> ' },
-    { label: 'Dash', value: '— ' },
-    { label: 'Tilde', value: '~ ' },
-    { label: 'Slash', value: '/ ' },
-    { label: 'Pipe', value: '| ' },
-    { label: 'Bullet', value: '\u2022 ' },
-    { label: 'By', value: 'by ' },
-    { label: 'Written', value: 'as written by ' },
-    { label: 'Spoken', value: 'as spoken by ' },
-    { label: 'Attr', value: 'attributed to ' },
+    { label: 'Arrow', value: '>\u00A0' },
+    { label: 'Dash', value: '—\u00A0' },
+    { label: 'Tilde', value: '~\u00A0' },
+    { label: 'Slash', value: '/\u00A0' },
+    { label: 'Pipe', value: '|\u00A0' },
+    { label: 'Bullet', value: '\u2022\u00A0' },
+    { label: 'By', value: 'by\u00A0' },
+    { label: 'Written', value: 'as written by\u00A0' },
+    { label: 'Spoken', value: 'as spoken by\u00A0' },
+    { label: 'Attr', value: 'attributed to\u00A0' },
     { label: 'None', value: '' },
 ];
 
