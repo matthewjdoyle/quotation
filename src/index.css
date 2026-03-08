@@ -2,25 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'OSRS-Plain';
+  src: url('./assets/fonts/osrs-plain.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OSRS-Plain-11';
+  src: url('./assets/fonts/osrs-plain-11.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quill';
+  src: url('./assets/fonts/quill.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quill8';
+  src: url('./assets/fonts/quill8.ttf') format('truetype');
+}
+
 @layer base {
   body {
-    @apply m-0 font-sans antialiased;
+    @apply m-0 font-sans antialiased selection:bg-black/5 selection:text-current;
   }
   
   @media (max-width: 640px) {
     .quote-line {
-      word-spacing: -0.05em;
-      max-width: 95%;
+      word-spacing: -0.02em;
+      max-width: 100%;
       margin: 0 auto;
     }
   }
-  
-  @media (min-width: 1280px) {
-    .quote-line {
-      max-width: 90%;
-      margin: 0 auto;
-    }
-  }
+}
+
+.noise-bg {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 @keyframes fadeIn {
@@ -42,7 +59,7 @@
 @keyframes textReveal {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -54,51 +71,59 @@
   position: relative;
 }
 
-.quote-text {
-  transition: opacity 0.3s ease-in-out;
+.quote-content-wrapper {
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
   opacity: 1;
 }
 
-.quote-text.fade-out {
+.quote-content-wrapper.transitioning {
   opacity: 0;
-}
-
-.quote-text.fade-in {
-  opacity: 1;
+  transform: translateY(-5px);
 }
 
 .text-reveal .quote-line {
   opacity: 0;
-  animation: textReveal 0.8s ease-out forwards;
+  animation: textReveal 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .text-reveal .author-line {
   opacity: 0;
-  animation: textReveal 0.8s ease-out 0.5s forwards;
+  animation: textReveal 2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s forwards;
 }
 
 .buttons-reveal {
   opacity: 0;
-  animation: textReveal 0.6s ease-out 1.2s forwards;
+  animation: textReveal 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.8s forwards;
 }
 
 .spin-button {
-  animation: spin 0.5s ease-in-out;
+  animation: spin 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Initial page load animation */
 .page-enter {
   opacity: 0;
-  transform: translateY(5px);
 }
 
 .page-enter-active {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Prevent animation on initial load */
-.no-animation {
-  animation: none !important;
+/* Custom scrollbar if needed */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.1);
 } 
