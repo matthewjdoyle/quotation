@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/quotation/static/css/main.93fbbf75.css",
-    "main.js": "/quotation/static/js/main.8080fd10.js",
+    "main.css": "/quotation/static/css/main.13c6d642.css",
+    "main.js": "/quotation/static/js/main.a90b0e10.js",
     "static/media/quill.ttf": "/quotation/static/media/quill.25b3f6cb0026be6f5a5a.ttf",
     "static/media/quill8.ttf": "/quotation/static/media/quill8.589ae02aedef6e1b8366.ttf",
     "static/media/osrs-plain.ttf": "/quotation/static/media/osrs-plain.dcda61c743235ddf0064.ttf",
     "static/media/osrs-plain-11.ttf": "/quotation/static/media/osrs-plain-11.49781db6406187ae7664.ttf",
     "index.html": "/quotation/index.html",
-    "main.93fbbf75.css.map": "/quotation/static/css/main.93fbbf75.css.map",
-    "main.8080fd10.js.map": "/quotation/static/js/main.8080fd10.js.map"
+    "main.13c6d642.css.map": "/quotation/static/css/main.13c6d642.css.map",
+    "main.a90b0e10.js.map": "/quotation/static/js/main.a90b0e10.js.map"
   },
   "entrypoints": [
-    "static/css/main.93fbbf75.css",
-    "static/js/main.8080fd10.js"
+    "static/css/main.13c6d642.css",
+    "static/js/main.a90b0e10.js"
   ]
 }
